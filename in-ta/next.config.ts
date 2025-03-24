@@ -1,19 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
- /** @type {import('next').NextConfig} */
-
-  reactStrictMode: true, // Optional, good for debugging in dev
-  swcMinify: true,       // Optional, faster builds
+  /** @type {import('next').NextConfig} */
+  reactStrictMode: true, // Good for catching bugs
+  swcMinify: true,       // Speeds up builds
   images: {
     domains: [
-      'assets.aceternity.com', // Add more domains if you use other external images
+      'assets.aceternity.com',
+      'cdn.pixabay.com', // ✅ Added this for your About page image
     ],
   },
-
-
-
-
 };
 
 export default nextConfig;
