@@ -55,11 +55,11 @@ export const StickyScroll = ({
       animate={{
         backgroundColor: backgroundColors[activeCard % backgroundColors.length],
       }}
-      className="relative flex h-[40rem] justify-center space-x-10 overflow-y-auto no-scrollbar rounded-md p-10"
+      className="relative flex h-[20rem] justify-center space-x-10 overflow-y-auto no-scrollbar rounded-md p-10"
       ref={ref}
     >
       {/* LEFT SIDE - SCROLLABLE CONTENT */}
-      <div className="relative flex items-start  px-4">
+      <div className="relative flex items-start  px-10">
         <div className="max-w-2xl">
           {content.map((item, index) => {
             const isActive = activeCard === index;
@@ -88,17 +88,18 @@ export const StickyScroll = ({
           })}
 
           {/* Add extra scroll space at the bottom */}
-          <div className="h-[50vh]" />
+          <div className="h-[20vh]" />
         </div>
       </div>
 
       {/* RIGHT SIDE - STICKY IMAGE WITH GRADIENT */}
       <div
-        className={cn(
-            "sticky top-1/2 -translate-y-1/2 hidden h-[350px] w-[30rem] overflow-hidden rounded-xl lg:block shadow-2xl p-5",
-            contentClassName
-          )}
-      >
+  className={cn(
+    "sticky top-0 self-start h-[350px] w-[25rem] overflow-hidden rounded-xl lg:block shadow-2xl p-5",
+    contentClassName
+  )}
+>
+
         {/* Blurred Gradient Background */}
         <motion.div
           key={`background-${activeCard}`}
@@ -116,7 +117,7 @@ export const StickyScroll = ({
         {/* Animated Foreground Image/Content */}
         <motion.div
           key={`image-${activeCard}`}
-          className="relative z-10 flex items-center justify-center h-full w-full"
+          className="relative z-10 flex items-center justify-center h-full w-full px-10"
           initial={{ opacity: 0, scale: 0.95, y: 30 }}
           animate={{
             opacity: 1,
@@ -124,7 +125,7 @@ export const StickyScroll = ({
             y: 0,
             transition: { duration: 0.6, ease: "easeOut" },
           }}
-          exit={{ opacity: 0, scale: 0.95, y: 30 }}
+          exit={{ opacity: 0, scale: 0.95, y: 20 }}
         >
           <motion.div className="relative h-full w-full rounded-md overflow-hidden shadow-2xl">
             {content[activeCard]?.content ?? (

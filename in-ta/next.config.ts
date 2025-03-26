@@ -1,13 +1,22 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /** @type {import('next').NextConfig} */
-  reactStrictMode: true, // Good for catching bugs
-  swcMinify: true,       // Speeds up builds
+  reactStrictMode: true,
+  swcMinify: true,
   images: {
-    domains: [
-      'assets.aceternity.com',
-      'cdn.pixabay.com', // ✅ Added this for your About page image
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'assets.aceternity.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.pixabay.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com', // ✅ Added this for Unsplash images
+      },
     ],
   },
 };

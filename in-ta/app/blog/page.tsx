@@ -3,6 +3,8 @@ import Navbar from "@/components/Navbar";
 import { useRef, useState } from "react";
 import "@/app/globals.css";
 import { motion } from "framer-motion";
+import CardGrid from "./Components/CardGrid";
+
 
 export default function BlogPage() {
   const introRef = useRef(null);
@@ -115,7 +117,7 @@ export default function BlogPage() {
       </section>
 
       {/* Blog Posts Section */}
-      <section ref={postsRef} className="py-20 px-6 md:px-12 max-w-5xl mx-auto relative z-10">
+      <section ref={postsRef} className="  ">
         <motion.h2
           variants={fadeInVariants}
           initial="hidden"
@@ -125,44 +127,7 @@ export default function BlogPage() {
         >
           Latest Posts
         </motion.h2>
-        <div className="space-y-16">
-          {posts.map((post, idx) => (
-            <motion.div
-              key={post.id}
-              variants={postVariants}
-              initial="hidden"
-              whileInView="visible"
-              whileHover="hover"
-              viewport={{ once: true }}
-              transition={{ delay: idx * 0.2 }}
-              className="bg-black p-6 rounded-lg border border-white/10 shadow-[0_0_10px_rgba(255,255,255,0.05)]"
-            >
-              <img src={post.img} alt={post.title} className="w-full h-64 object-cover rounded-md mb-6" />
-              <div className="flex justify-between items-center mb-4">
-                <h3 className="text-2xl text-white">{post.title}</h3>
-                <span className="text-sm text-gray-400">{post.date}</span>
-              </div>
-              <p className="text-gray-300 mb-4">{post.excerpt}</p>
-              <motion.button
-                variants={buttonVariants}
-                whileHover="hover"
-                whileTap="tap"
-                onClick={() => handleReadMore(post.id)}
-                className="px-4 py-2 bg-transparent border border-white/20 text-white rounded-md"
-              >
-                {selectedPost === post.id ? "Collapse" : "Read More"}
-              </motion.button>
-              <motion.div
-                variants={articleVariants}
-                initial="hidden"
-                animate={selectedPost === post.id ? "visible" : "hidden"}
-                className="mt-4 text-gray-200"
-              >
-                <p>{post.fullText}</p>
-              </motion.div>
-            </motion.div>
-          ))}
-        </div>
+        <CardGrid />
       </section>
 
       {/* CTA Section */}
