@@ -100,12 +100,22 @@ const Hero = () => {
         style={{ opacity: videoOpacity }}
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
       >
-        <source src="/videos/hero." type="video/mp4" />
+        <source src="/videos/hero.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </motion.video>
 
       {/* ✅ Experience Overlay */}
-      
+      {!experienceStarted && (
+        <div className="absolute top-0 left-0 w-full h-full bg-black/90 z-50 flex justify-center items-center transition-opacity duration-500">
+          <button
+            onClick={handleExperienceClick}
+            className="px-8 py-4 bg-white text-black font-bold text-xl rounded-full hover:bg-blue-500 hover:text-white transition duration-300"
+          >
+           Get Start
+          </button>
+        </div>
+      )}
+
       {/* ✅ Hero Content */}
       <motion.div
         style={{ opacity, y }}

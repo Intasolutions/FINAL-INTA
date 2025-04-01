@@ -3,7 +3,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform, useInView } from "framer-motion";
 import { TextGenerateEffect } from "./ui/text-generate-effect";
-import { Hsparkles } from "./Hsparkels";
 
 const About = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -59,10 +58,7 @@ const About = () => {
       }}
       className="text-center relative  px-10 justify-center flex flex-col items-center"
     >
-     <Hsparkles>
-
-      
-     </Hsparkles>
+      <h1 className="text-[40px] mb-6">Your Vision Our Code</h1>
 
       <TextGenerateEffect
         key={key}

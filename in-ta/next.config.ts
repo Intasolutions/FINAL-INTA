@@ -1,24 +1,19 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
+ /** @type {import('next').NextConfig} */
+
+  reactStrictMode: true, // Optional, good for debugging in dev
+  swcMinify: true,       // Optional, faster builds
   images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'assets.aceternity.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'cdn.pixabay.com',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com', // ✅ Added this for Unsplash images
-      },
+    domains: [
+      'assets.aceternity.com', // Add more domains if you use other external images
     ],
   },
+
+
+
+
 };
 
 export default nextConfig;
